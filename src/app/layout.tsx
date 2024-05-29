@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { ConfigProvider } from 'antd';
 
-import { theme } from '@/theme';
+import { theme } from 'theme';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
