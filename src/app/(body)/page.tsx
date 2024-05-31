@@ -1,18 +1,19 @@
 'use client';
-import Image from 'next/image';
-import catImage from 'assets/images/mainPage/funny-portrait-british-shorthair-cat-isolated-transparent-background-png_1075135-346-removebg-preview.png';
+// import Image from 'next/image';
+import bg from 'assets/images/mainPage/1655475655_17-06-2022-19_19_10.webp';
 
-import { Flex, Typography } from 'antd';
+import { Typography } from 'antd';
 
-const { Title } = Typography;
+import 'styles/global.css';
+const { Title, Paragraph } = Typography;
+
 export default function Home() {
   return (
-    <Flex>
-      <Image src={catImage} alt="cat" width={600} height={600} />
-      <div>
-        <Title>Hey!</Title>
-        <Title level={2}>Wanna contact?</Title>
+    <main>
+      <div className="feed__container ">
+        <Title>Welcome!</Title>
+        <Paragraph>I am Nick Shkitak, lets connect :3</Paragraph>
       </div>
-    </Flex>
+    </main>
   );
 }

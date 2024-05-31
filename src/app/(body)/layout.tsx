@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <AntdLayout>
-        <Header>
+        <Header style={{ position: 'fixed', backgroundColor: 'transparent' }}>
           <Navigation itemsList={itemsList}></Navigation>
         </Header>
       </AntdLayout>
