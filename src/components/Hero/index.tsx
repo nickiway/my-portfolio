@@ -9,15 +9,18 @@ const Hero = ({
   children,
   ...props
 }: HeroSectionProps) => {
-  const popoverBg = `bg-black/${popoverOpacity}`;
-
   return (
     <section
       {...props}
       className={clsx('relative', className)}
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className={clsx('absolute  w-full h-full', popoverBg)}>
+      <div
+        className={clsx(
+          'absolute w-full h-full ',
+          `bg-black/${popoverOpacity}`,
+        )}
+      >
         {children}
       </div>
     </section>

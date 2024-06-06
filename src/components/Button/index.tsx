@@ -1,3 +1,5 @@
+'use client';
+
 import type { ButtonProps as MUIButtonProps } from '@mui/base';
 
 export interface ButtonProps
@@ -5,3 +7,7 @@ export interface ButtonProps
     MUIButtonProps {
   variant?: 'primary' | 'secondary' | 'link';
 }
+
+import { Button } from '@mui/material';
+
+export default Button;

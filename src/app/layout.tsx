@@ -1,3 +1,5 @@
+import MyThemeProvider from 'providers/MuiThemeProvider';
+
 import 'styles/global.css';
 
 export default function RootLayout({
@@ -7,7 +9,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <MyThemeProvider>
+        <body>{children}</body>
+      </MyThemeProvider>
     </html>
   );
 }
