@@ -14,12 +14,12 @@ export const itemsList: NavigationItemProps[] = [
   },
   {
     uid: '3',
-    title: 'My Projects',
+    title: 'Projects',
     link: '/projects',
   },
   {
     uid: '4',
-    title: 'Places of Studying',
+    title: 'Studying',
     link: '/study',
   },
 ];

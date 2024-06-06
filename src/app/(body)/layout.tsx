@@ -1,30 +1,34 @@
 'use client';
-import React from 'react';
 
+import clsx from 'clsx';
 import { Navigation } from 'components/Navigation';
-import { Layout as AntdLayout } from 'antd';
 
+import { poppins, varelaRound } from 'utils/fonts';
 import { itemsList } from 'components/Navigation/itemsList';
 
-const { Header, Footer, Content } = AntdLayout;
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <AntdLayout>
-        <Header style={{ position: 'fixed', backgroundColor: 'transparent' }}>
-          <Navigation itemsList={itemsList}></Navigation>
-        </Header>
-      </AntdLayout>
+      <header className="fixed z-10 flex w-full p-10">
+        <div
+          className={clsx(
+            varelaRound.className,
+            'text-white shadow-black uppercase text-2xl',
+          )}
+        >
+          Nicki.Way
+        </div>
 
-      <AntdLayout>
-        <Content>{children}</Content>
-      </AntdLayout>
+        <Navigation
+          className={clsx(
+            'flex gap-10 flex-row-reverse w-full',
+            poppins.className,
+          )}
+          itemsList={itemsList}
+        />
+      </header>
 
-      <AntdLayout>
-        <Footer>
-          <div>TEST FOOTER</div>
-        </Footer>
-      </AntdLayout>
+      {children}
     </>
   );
 }

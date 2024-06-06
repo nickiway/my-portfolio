@@ -1,18 +1,37 @@
 'use client';
-// import Image from 'next/image';
-import bg from 'assets/images/mainPage/1655475655_17-06-2022-19_19_10.webp';
 
-import { Typography } from 'antd';
+import Button from 'components/shared/Button';
+import Hero from 'components/shared/Hero';
 
-import 'styles/global.css';
-const { Title, Paragraph } = Typography;
+// import image from 'assets/images/mainPage/funny-portrait-british-shorthair-cat-isolated-transparent-background-png_1075135-346-removebg-preview.png';
 
-export default function Home() {
+export default function MainPage() {
   return (
     <main>
-      <div className="feed__container ">
-        <Title>Welcome!</Title>
-        <Paragraph>I am Nick Shkitak, lets connect :3</Paragraph>
+      <Hero
+        className="w-full h-[90vh]"
+        popoverOpacity={40}
+        backgroundImage={
+          'https://moewalls.com/wp-content/uploads/2023/02/lofi-japanese-style-room-day-time-thumb.jpg'
+        }
+      >
+        <section className="h-full flex items-center">
+          <Button variant="primary">Hello world</Button>
+        </section>
+      </Hero>
+
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa
+        soluta, fuga reiciendis eius similique earum praesentium necessitatibus
+        voluptas distinctio ratione tempora atque cumque quos fugit aspernatur.
+        Dolores quaerat, quas a nulla, assumenda possimus quibusdam ut et
+        mollitia optio repellendus aspernatur voluptas laudantium. Assumenda
+        numquam possimus in ea beatae perspiciatis animi libero totam enim. Ex
+        recusandae ratione quidem vitae? Ad culpa architecto voluptas error
+        voluptatibus soluta illo laboriosam laudantium sapiente quibusdam eum
+        aperiam amet facere aut illum, aspernatur provident enim nihil. Delectus
+        quod voluptas veniam necessitatibus amet saepe eaque a ea expedita, modi
+        eius nemo reiciendis repellendus maxime dolores mollitia.
       </div>
     </main>
   );
