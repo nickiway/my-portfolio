@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material';
-import { Poppins } from 'next/font/google';
+
 import customColors, { CustomColors } from 'colors';
+import { poppins } from 'fonts';
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -10,11 +11,6 @@ declare module '@mui/material/styles' {
     customColors?: CustomColors;
   }
 }
-
-const poppins = Poppins({
-  weight: ['400', '500', '600', '700', '800', '900'],
-  subsets: ['latin', 'latin-ext'],
-});
 
 const theme = createTheme({
   typography: {
