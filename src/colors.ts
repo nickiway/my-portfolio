@@ -18,6 +18,8 @@ export interface CustomColors {
   WOODSMOKE: string;
   TAPESTRY: string;
   ROYAL_HEATH: string;
+  bazaar: string;
+  manatee: string;
 }
 
 const customColors: CustomColors = {
@@ -30,6 +32,8 @@ const customColors: CustomColors = {
   WOODSMOKE: '#191A22',
   TAPESTRY: '#A34D7F',
   ROYAL_HEATH: '#A62F62',
+  bazaar: '#858196',
+  manatee: '#8889A1',
 };
 
 export default customColors;

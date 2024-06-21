@@ -50,7 +50,6 @@ const AppBar = () => {
           </Grid>
         </Grid>
 
-        {/* Drawer for SM- screen navigation */}
         <AppBarDrawer setOpen={setOpen} open={open} />
       </Container>
     </MuiAppBar>

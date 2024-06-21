@@ -1,16 +1,22 @@
 import { createTheme } from '@mui/material';
+import { palette } from '@mui/system';
 
 import customColors, { CustomColors } from 'colors';
-import { poppins } from 'fonts';
+import { poppins, roboto } from 'fonts';
 
 declare module '@mui/material/styles' {
   interface Palette {
     customColors: CustomColors;
+    customGradients: { main: string };
   }
   interface PaletteOptions {
     customColors?: CustomColors;
+    customGradients?: { main: string };
   }
 }
+
+// custom colors
+const { ROYAL_HEATH, TAPESTRY, WOODSMOKE, softPeach, steelGray } = customColors;
 
 const theme = createTheme({
   typography: {
@@ -18,18 +24,48 @@ const theme = createTheme({
   },
 
   components: {
-    MuiButton: {
+    MuiTypography: {
       styleOverrides: {
-        contained: {
-          color: 'white',
+        h1: {
+          fontSize: '64px',
+        },
+        h2: {
+          fontSize: '48px',
+        },
+        h3: {
+          fontSize: '32px',
+        },
+        h4: {
+          fontSize: '24px',
+        },
+        h5: {
+          fontSize: '18px',
+        },
+        h6: {
+          fontSize: '16px',
+        },
+        caption: {
+          fontSize: '20px',
+          textTransform: 'uppercase',
+          fontFamily: roboto.style.fontFamily,
+          letterSpacing: '2px',
         },
       },
     },
-
+    MuiButton: {
+      styleOverrides: {
+        contained: {
+          color: softPeach,
+          minWidth: '150px',
+          background:
+            'linear-gradient(0deg, rgba(163,77,127,1) 0%, rgba(166,47,98,1) 100%);',
+        },
+      },
+    },
     MuiDivider: {
       styleOverrides: {
         root: {
-          backgroundColor: customColors.ROYAL_HEATH,
+          backgroundColor: ROYAL_HEATH,
           height: '2px',
         },
       },
@@ -38,7 +74,6 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: 'none',
-          backgroundColor: customColors.WOODSMOKE,
         },
       },
     },
@@ -47,23 +82,27 @@ const theme = createTheme({
   palette: {
     customColors,
 
-    background: {
-      default: customColors.WOODSMOKE,
-      paper: customColors.WOODSMOKE,
-    },
-
     text: {
-      primary: customColors.softPeach,
-      disabled: customColors.steelGray,
-      secondary: customColors.TAPESTRY,
+      primary: softPeach,
+      disabled: steelGray,
+      secondary: TAPESTRY,
     },
 
     primary: {
-      main: customColors.ROYAL_HEATH,
+      main: ROYAL_HEATH,
     },
 
     secondary: {
-      main: customColors.TAPESTRY,
+      main: TAPESTRY,
+    },
+
+    background: {
+      default: WOODSMOKE,
+      paper: steelGray,
+    },
+
+    customGradients: {
+      main: 'linear-gradient(150deg, rgba(25,26,34,1) 0%, rgba(41,43,55,1) 34%, rgba(166,47,98,1) 100%);',
     },
   },
 });
