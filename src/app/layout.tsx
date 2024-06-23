@@ -1,8 +1,3 @@
-import MyThemeProvider from 'providers/MuiThemeProvider';
-import { CssBaseline } from '@mui/material';
-
-import customColors from 'colors';
-
 import 'styles/global.css';
 
 export default function RootLayout({
@@ -10,12 +5,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <MyThemeProvider>
-        <CssBaseline />
-        {children}
-      </MyThemeProvider>
-    </html>
-  );
+  return <html lang="en">{children}</html>;
 }

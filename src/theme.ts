@@ -1,109 +1,114 @@
 import { createTheme } from '@mui/material';
-import { palette } from '@mui/system';
 
-import customColors, { CustomColors } from 'colors';
+import colors, { Colors } from 'colors';
 import { poppins, roboto } from 'fonts';
+import { Mode } from 'config';
 
 declare module '@mui/material/styles' {
   interface Palette {
-    customColors: CustomColors;
-    customGradients: { main: string };
+    colors: Colors;
   }
   interface PaletteOptions {
-    customColors?: CustomColors;
-    customGradients?: { main: string };
+    colors?: Colors;
   }
 }
 
-// custom colors
-const { ROYAL_HEATH, TAPESTRY, WOODSMOKE, softPeach, steelGray } = customColors;
+// colors
+const {
+  darkAccent,
+  darkShades,
+  lightAccent,
+  lightShades,
+  primary,
+  danger,
+  info,
+  success,
+  warning,
+} = colors;
 
-const theme = createTheme({
-  typography: {
-    fontFamily: poppins.style.fontFamily,
-  },
-
+export const getThemedComponents = (mode: Mode) => ({
   components: {
-    MuiTypography: {
-      styleOverrides: {
-        h1: {
-          fontSize: '64px',
-        },
-        h2: {
-          fontSize: '48px',
-        },
-        h3: {
-          fontSize: '32px',
-        },
-        h4: {
-          fontSize: '24px',
-        },
-        h5: {
-          fontSize: '18px',
-        },
-        h6: {
-          fontSize: '16px',
-        },
-        caption: {
-          fontSize: '20px',
-          textTransform: 'uppercase',
-          fontFamily: roboto.style.fontFamily,
-          letterSpacing: '2px',
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        contained: {
-          color: softPeach,
-          minWidth: '150px',
-          background:
-            'linear-gradient(0deg, rgba(163,77,127,1) 0%, rgba(166,47,98,1) 100%);',
-        },
-      },
-    },
-    MuiDivider: {
-      styleOverrides: {
-        root: {
-          backgroundColor: ROYAL_HEATH,
-          height: '2px',
-        },
-      },
-    },
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          boxShadow: 'none',
-        },
-      },
-    },
+    ...(mode === 'light'
+      ? {
+          MuiButton: {
+            styleOverrides: {
+              contained: {
+                color: 'white',
+                boxShadow: 'none',
+              },
+            },
+          },
+          MuiAppBar: {
+            styleOverrides: {
+              root: {
+                boxShadow: 'none',
+              },
+            },
+          },
+        }
+      : {
+          MuiButton: {
+            styleOverrides: {
+              contained: {
+                color: 'white',
+                boxShadow: 'none',
+              },
+            },
+          },
+          MuiAppBar: {
+            styleOverrides: {
+              root: {
+                boxShadow: 'none',
+              },
+            },
+          },
+        }),
   },
+});
 
+export const getDesignTokens = (mode: Mode) => ({
   palette: {
-    customColors,
-
-    text: {
-      primary: softPeach,
-      disabled: steelGray,
-      secondary: TAPESTRY,
+    colors,
+    error: {
+      main: danger,
     },
 
-    primary: {
-      main: ROYAL_HEATH,
+    info: {
+      main: info,
+    },
+    success: {
+      main: success,
     },
 
     secondary: {
-      main: TAPESTRY,
+      main: lightAccent,
     },
 
-    background: {
-      default: WOODSMOKE,
-      paper: steelGray,
+    warning: {
+      main: warning,
     },
 
-    customGradients: {
-      main: 'linear-gradient(150deg, rgba(25,26,34,1) 0%, rgba(41,43,55,1) 34%, rgba(166,47,98,1) 100%);',
+    primary: {
+      main: primary,
     },
+    ...(mode === 'light'
+      ? {
+          background: {
+            default: lightShades,
+            paper: lightAccent,
+          },
+        }
+      : {
+          background: {
+            default: darkShades,
+            paper: darkAccent,
+          },
+        }),
+  },
+});
+const theme = createTheme({
+  typography: {
+    fontFamily: poppins.style.fontFamily,
   },
 });
 

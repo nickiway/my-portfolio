@@ -26,33 +26,37 @@ const AppBar = () => {
   };
 
   return (
-    <MuiAppBar position="sticky">
-      <Container maxWidth="lg" sx={appBarContainerStyles}>
-        <Grid container>
-          <Grid item xs={1}>
-            <Typography sx={logoStyles}>Nick</Typography>
+    <header>
+      <MuiAppBar position="sticky">
+        <Container maxWidth="lg" sx={appBarContainerStyles}>
+          <Grid container>
+            <Grid item xs={1}>
+              <Typography sx={logoStyles} color={'white'}>
+                Nick
+              </Typography>
+            </Grid>
+
+            {/* SM+ screen */}
+            <Grid item xs={7} sx={lgScreenNavStyles}>
+              <Navigation />
+            </Grid>
+
+            <Grid item xs={4} sx={lgScreenNavStyles}>
+              <Socials />
+            </Grid>
+
+            {/* SM- screen */}
+            <Grid item xs={11} sx={smScreenNavStyles}>
+              <IconButton onClick={onOpen}>
+                <Menu color="primary" />
+              </IconButton>
+            </Grid>
           </Grid>
 
-          {/* SM+ screen */}
-          <Grid item xs={7} sx={lgScreenNavStyles}>
-            <Navigation />
-          </Grid>
-
-          <Grid item xs={4} sx={lgScreenNavStyles}>
-            <Socials />
-          </Grid>
-
-          {/* SM- screen */}
-          <Grid item xs={11} sx={smScreenNavStyles}>
-            <IconButton onClick={onOpen}>
-              <Menu color="primary" />
-            </IconButton>
-          </Grid>
-        </Grid>
-
-        <AppBarDrawer setOpen={setOpen} open={open} />
-      </Container>
-    </MuiAppBar>
+          <AppBarDrawer setOpen={setOpen} open={open} />
+        </Container>
+      </MuiAppBar>
+    </header>
   );
 };
 

@@ -1,9 +1,14 @@
 'use client';
 
-import { ThemeProvider } from '@mui/material';
-import theme from 'theme';
+import { Theme, ThemeProvider } from '@mui/material';
 
-const MyThemeProvider = ({ children }: { children: React.ReactNode }) => {
+const MyThemeProvider = ({
+  children,
+  theme,
+}: {
+  children: React.ReactNode;
+  theme: Theme;
+}) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 

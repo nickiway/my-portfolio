@@ -1,39 +1,27 @@
-export interface CustomColors {
-  // Light shades (bg body)
-  softPeach: string;
+export interface Colors {
+  lightShades: string;
+  lightAccent: string;
+  primary: string;
+  darkAccent: string;
+  darkShades: string;
 
-  // Light accent (accent color)
-  tumbleweed: string;
-
-  // Main color
-  myPink: string;
-
-  // Dark Accent
-  cosmic: string;
-
-  // Dark Shades
-  steelGray: string;
-
-  // wood smoke
-  WOODSMOKE: string;
-  TAPESTRY: string;
-  ROYAL_HEATH: string;
-  bazaar: string;
-  manatee: string;
+  info: string;
+  success: string;
+  warning: string;
+  danger: string;
 }
 
-const customColors: CustomColors = {
-  softPeach: '#FBF8F8',
-  tumbleweed: '#DCA17F',
-  myPink: '#D08C7C',
-  cosmic: '#6B3D43',
-  steelGray: '#251E34',
+const colors: Colors = {
+  lightShades: '#FAFBFA',
+  lightAccent: '#CCC1C5',
+  primary: '#86A1B8',
+  darkAccent: '#BEA4A6',
+  darkShades: '#474A63',
 
-  WOODSMOKE: '#191A22',
-  TAPESTRY: '#A34D7F',
-  ROYAL_HEATH: '#A62F62',
-  bazaar: '#858196',
-  manatee: '#8889A1',
+  info: '#464a68',
+  success: '#5dab6f',
+  warning: '#db9b37',
+  danger: '#f44336',
 };
 
-export default customColors;
+export default colors;
