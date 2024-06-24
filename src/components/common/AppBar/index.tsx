@@ -18,6 +18,7 @@ import Navigation from 'components/common/Navigation';
 import ThemeSwitch from 'components/common/ThemeSwitch';
 
 import { Menu } from '@mui/icons-material';
+import { width } from '@mui/system';
 
 const AppBar = () => {
   const [open, setOpen] = useState(false);
@@ -48,8 +49,8 @@ const AppBar = () => {
 
             {/* SM- screen */}
             <Grid item xs={10} sx={smScreenNavStyles}>
-              <IconButton onClick={onOpen}>
-                <Menu color="primary" />
+              <IconButton sx={{ color: 'white' }} onClick={onOpen}>
+                <Menu />
               </IconButton>
             </Grid>
 

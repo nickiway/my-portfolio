@@ -1,20 +1,23 @@
 import type { TypographyOptions } from '@mui/material/styles/createTypography';
 import type { PaletteOptions } from '@mui/material/styles/createPalette';
-import { Components } from '@mui/material';
+import { Components, ThemeOptions } from '@mui/material';
 
 import { createTheme } from '@mui/material';
 
 import colors, { Colors } from 'colors';
 import { poppins, roboto } from 'fonts';
 import { Theme } from 'config';
-import { red } from '@mui/material/colors';
 
 declare module '@mui/material/styles' {
   interface Palette {
     colors: Colors;
+    shades: string;
+    accent: string;
   }
   interface PaletteOptions {
     colors?: Colors;
+    shades?: string;
+    accent?: string;
   }
 }
 
@@ -71,8 +74,10 @@ export const getThemedComponents = (mode: Theme) => ({
   } as Components,
 });
 
-export const getDesignTokens = (mode: Theme) => ({
-  palette: {
+export const getDesignTokens = (mode: 'light' | 'dark'): ThemeOptions => {
+  const isLightMode = mode === 'light';
+
+  const palette: PaletteOptions = {
     colors,
     error: {
       main: danger,
@@ -83,44 +88,36 @@ export const getDesignTokens = (mode: Theme) => ({
     success: {
       main: success,
     },
-
     secondary: {
       main: lightAccent,
     },
-
     warning: {
       main: warning,
     },
-
     primary: {
       main: primary,
     },
-    ...(mode === 'light'
-      ? {
-          background: {
-            default: lightShades,
-            paper: lightAccent,
-          },
-        }
-      : {
-          background: {
-            default: darkShades,
-            paper: darkAccent,
-          },
-        }),
-  } as PaletteOptions,
+    background: {
+      default: isLightMode ? lightShades : darkShades,
+      paper: isLightMode ? lightAccent : darkAccent,
+    },
+    accent: isLightMode ? lightAccent : darkAccent,
+    shades: isLightMode ? lightShades : darkShades,
+  };
 
-  typography: {
-    ...(mode === 'dark'
-      ? {
-          allVariants: {
-            color: 'white',
-          },
-        }
-      : {}),
-  } as TypographyOptions,
-});
+  const typography: TypographyOptions = {
+    ...(mode === 'dark' && {
+      allVariants: {
+        color: 'white',
+      },
+    }),
+  };
 
+  return {
+    palette,
+    typography,
+  };
+};
 const theme = createTheme({
   typography: {
     fontFamily: poppins.style.fontFamily,

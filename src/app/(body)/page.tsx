@@ -1,12 +1,15 @@
 'use client';
 
 import { Button, Box, Typography } from '@mui/material';
+import Hero from 'components/landing/main/Hero';
 
 const MainPage = () => {
   return (
     <>
+      <Hero />
+
       <Typography align="center">Contained</Typography>
-      <Box sx={{ display: 'flex', gap: 2, margin: 5 }}>
+      <Box sx={{ display: 'flex', gap: 2, margin: 5, flexWrap: 'wrap' }}>
         <Button variant="contained" color="error">
           Click me
         </Button>
@@ -28,7 +31,7 @@ const MainPage = () => {
         </Button>
       </Box>
       <Typography align="center">Outlined</Typography>
-      <Box sx={{ display: 'flex', gap: 2, margin: 5 }}>
+      <Box sx={{ display: 'flex', gap: 2, margin: 5, flexWrap: 'wrap' }}>
         <Button variant="outlined" color="error">
           Click me
         </Button>
@@ -50,7 +53,7 @@ const MainPage = () => {
       </Box>
 
       <Typography align="center">Text button</Typography>
-      <Box sx={{ display: 'flex', gap: 2, margin: 5 }}>
+      <Box sx={{ display: 'flex', gap: 2, margin: 5, flexWrap: 'wrap' }}>
         <Button color="info">Info Button</Button>
         <Button color="primary">Primary Button</Button>
         <Button color="error">Error Button</Button>
