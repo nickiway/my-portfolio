@@ -1,8 +1,13 @@
+import type { TypographyOptions } from '@mui/material/styles/createTypography';
+import type { PaletteOptions } from '@mui/material/styles/createPalette';
+import { Components } from '@mui/material';
+
 import { createTheme } from '@mui/material';
 
 import colors, { Colors } from 'colors';
 import { poppins, roboto } from 'fonts';
-import { Mode } from 'config';
+import { Theme } from 'config';
+import { red } from '@mui/material/colors';
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -26,7 +31,7 @@ const {
   warning,
 } = colors;
 
-export const getThemedComponents = (mode: Mode) => ({
+export const getThemedComponents = (mode: Theme) => ({
   components: {
     ...(mode === 'light'
       ? {
@@ -63,16 +68,15 @@ export const getThemedComponents = (mode: Mode) => ({
             },
           },
         }),
-  },
+  } as Components,
 });
 
-export const getDesignTokens = (mode: Mode) => ({
+export const getDesignTokens = (mode: Theme) => ({
   palette: {
     colors,
     error: {
       main: danger,
     },
-
     info: {
       main: info,
     },
@@ -104,8 +108,19 @@ export const getDesignTokens = (mode: Mode) => ({
             paper: darkAccent,
           },
         }),
-  },
+  } as PaletteOptions,
+
+  typography: {
+    ...(mode === 'dark'
+      ? {
+          allVariants: {
+            color: 'white',
+          },
+        }
+      : {}),
+  } as TypographyOptions,
 });
+
 const theme = createTheme({
   typography: {
     fontFamily: poppins.style.fontFamily,

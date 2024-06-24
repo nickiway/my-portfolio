@@ -15,6 +15,7 @@ import Socials from 'components/common/Socials';
 
 import AppBarDrawer from 'components/common/AppBar/AppBarDrawer';
 import Navigation from 'components/common/Navigation';
+import ThemeSwitch from 'components/common/ThemeSwitch';
 
 import { Menu } from '@mui/icons-material';
 
@@ -26,8 +27,8 @@ const AppBar = () => {
   };
 
   return (
-    <header>
-      <MuiAppBar position="sticky">
+    <MuiAppBar position="sticky">
+      <header>
         <Container maxWidth="lg" sx={appBarContainerStyles}>
           <Grid container>
             <Grid item xs={1}>
@@ -37,7 +38,7 @@ const AppBar = () => {
             </Grid>
 
             {/* SM+ screen */}
-            <Grid item xs={7} sx={lgScreenNavStyles}>
+            <Grid item xs={6} sx={lgScreenNavStyles}>
               <Navigation />
             </Grid>
 
@@ -46,24 +47,31 @@ const AppBar = () => {
             </Grid>
 
             {/* SM- screen */}
-            <Grid item xs={11} sx={smScreenNavStyles}>
+            <Grid item xs={10} sx={smScreenNavStyles}>
               <IconButton onClick={onOpen}>
                 <Menu color="primary" />
               </IconButton>
+            </Grid>
+
+            <Grid item xs={1} sx={themeSwitchStyles}>
+              <ThemeSwitch />
             </Grid>
           </Grid>
 
           <AppBarDrawer setOpen={setOpen} open={open} />
         </Container>
-      </MuiAppBar>
-    </header>
+      </header>
+    </MuiAppBar>
   );
 };
+
+export default AppBar;
 
 // classes
 const lgScreenNavStyles = {
   display: { sm: 'flex', xs: 'none' },
   justifyContent: 'flex-end',
+  alignItems: 'center',
   gap: '20px',
 } as SxProps<Theme>;
 
@@ -85,4 +93,7 @@ const appBarContainerStyles = {
   alignItems: 'center',
 };
 
-export default AppBar;
+const themeSwitchStyles = {
+  display: 'flex',
+  justifyContent: 'flex-end',
+} as SxProps<Theme>;

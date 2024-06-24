@@ -12,13 +12,13 @@ export interface Colors {
 }
 
 const colors: Colors = {
-  lightShades: '#FAFBFA',
-  lightAccent: '#CCC1C5',
-  primary: '#86A1B8',
-  darkAccent: '#BEA4A6',
-  darkShades: '#474A63',
+  lightShades: '#F5F1ED',
+  lightAccent: '#5FAFAF',
+  primary: '#20A856',
+  darkAccent: '#737073',
+  darkShades: '#142E26',
 
-  info: '#464a68',
+  info: '#8B95AF',
   success: '#5dab6f',
   warning: '#db9b37',
   danger: '#f44336',
